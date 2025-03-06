@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin - Gestion des Paiements</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<!-- Sidebar -->
+<div class="sidebar" id="sidebar">
+  <h2>Résidence</h2>
+  <ul>
+    <li><a href="/profileAdmin">🏠 Tableau de Bord</a></li>
+    <li><a href="/api/viewcontroller/gestion-chambres">🛏️ Chambres</a></li>
+    <li><a href="/api/viewcontroller/gestion-residents">👨‍🎓 Résidents</a></li>
+    <li><a href="/api/viewcontroller/gestion-paiement">💳 Paiements</a></li>
+    <li><a href="#">🛠️ Requêtes</a></li>
+    <li><a href="#">📊 Statistiques</a></li>
+  </ul>
+</div>
+
+<!-- Main Content -->
+<div class="main-content">
+  <header>
+    <button id="toggle-btn">☰</button>
+    <h1>Gestion des Paiements</h1>
+  </header>
+
+  <!-- Payment Actions -->
+  <section class="actions">
+    <button id="add-payment-btn">➕ Ajouter un Paiement</button>
+  </section>
+
+  <!-- Payment List -->
+  <section class="payment-list">
+    <h2>Liste des Paiements</h2>
+    <table id="payments-table">
+      <thead>
+      <tr>
+        <th>ID</th>
+        <th>Étudiant</th>
+        <th>Montant</th>
+        <th>Mois Concerné</th>
+        <th>Statut</th>
+        <th>Méthode de paiement</th>
+        <th>Actions</th>
+
+      </tr>
+      </thead>
+      <tbody>
+      <!-- Payments will be dynamically populated here -->
+      </tbody>
+    </table>
+  </section>
+
+  <!-- Payment Form (Modal) -->
+  <div id="payment-modal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Ajouter / Modifier un paiement</h2>
+      <form id="payment-form">
+        <input type="hidden" id="payment-id">
+
+        <div class="form-group">
+          <label for="numero-etudiant">Numéro de l'étudiant :</label>
+          <input type="text" id="numero-etudiant" required>
+        </div>
+
+        <div class="form-group">
+          <label for="montant">Montant :</label>
+          <input type="number" id="montant" step="0.01" required>
+        </div>
+
+        <div class="form-group">
+          <label for="mois-concerne">Mois concerné :</label>
+          <input type="month" id="mois-concerne" required> <!-- Modification du type -->
+        </div>
+
+        <div class="form-group">
+          <label for="statut">Statut :</label>
+          <select id="statut">
+            <option value="PAYEE">Payé</option>
+            <option value="EN_ATTENTE">En attente</option>
+            <option value="EN_RETARD">En retard</option>
+            <option value="ANNULEE">Annulée</option> <!-- Correction de l'espace avant -->
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="methode-paiement">Méthode de paiement :</label>
+          <select id="methode-paiement">
+            <option value="ESPECES">ESPECES</option> <!-- Valeurs en majuscules -->
+            <option value="VIREMENT_BANCAIRE">Virement</option>
+            <option value="CARTE_BANCAIRE">Carte bancaire</option>
+          </select>
+        </div>
+
+
+        <button type="submit">Enregistrer</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+<script src="/js/paiement.js"></script>
+</body>
+</html>

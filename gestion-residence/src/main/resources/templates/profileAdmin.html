@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin - Gestion de Résidence</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<!-- Sidebar -->
+<div class="sidebar" id="sidebar">
+  <h2>Résidence</h2>
+  <ul>
+    <li><a href="/profileAdmin">🏠 Tableau de Bord</a></li>
+    <li><a href="/api/viewcontroller/gestion-chambres">🛏️ Chambres</a></li>
+    <li><a href="/api/viewcontroller/gestion-residents">👨‍🎓 Résidents</a></li>
+    <li><a href="/api/viewcontroller/gestion-paiement">💳 Paiements</a></li>
+    <li><a href="#">🛠️ Requêtes</a></li>
+    <li><a href="#">📊 Statistiques</a></li>
+  </ul>
+</div>
+
+<!-- Contenu Principal -->
+<div class="main-content">
+  <header>
+    <button id="toggle-btn">☰</button>
+    <h1>Tableau de Bord</h1>
+  </header>
+
+  <section class="stats">
+    <div class="card">Chambres occupées: <span>120</span></div>
+    <div class="card">Résidents: <span>200</span></div>
+    <div class="card">Paiements en retard: <span>10,000 DH</span></div>
+    <div class="card">Requêtes en cours: <span>15</span></div>
+  </section>
+
+  <section class="charts">
+    <canvas id="chart"></canvas>
+  </section>
+</div>
+
+<script src="/js/script.js"></script>
+</body>
+</html>
