@@ -22,7 +22,7 @@ Ce projet est une application web permettant de gérer les résidences étudiant
 ## Installation et Exécution
 1. **Cloner le projet :**
    ```bash
-   git clone https://github.com/hello2wo/gestion-residence.git
+   git clone https://github.com/ImaneIdbali02/gestion-residence.git
    cd gestion-residence
    ```
 
