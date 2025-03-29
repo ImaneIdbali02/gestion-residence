@@ -1,29 +1,44 @@
 package com.imane.residence.gestion_residence.models.entities;
 
+import com.imane.residence.gestion_residence.models.enums.StatutDisponibilite;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 @Data
-@Table(name="personnel_maintenance")
-public class PersonnelMaintenance {
+@Table(name = "personnel_maintenance")
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+public class PersonelMaintenance {
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id;
 
-    @OneToOne
-    @JoinColumn(name = "utilisateur_id", unique = true)
-    private Utilisateur utilisateur;
+    @Column(nullable = false)
+    private String nom;
+
+    @Column(nullable = false)
+    private String prenom;
 
     private String specialite;
-    private String zoneTravail;
-    private String numeroTelephoneProfessionnel;
 
-    @OneToMany(mappedBy = "assigneA")
-    private List<Maintenance> tachesAssignees = new ArrayList<Maintenance>();
+    private String telephone;
+
+    private String email;
+
+    @Enumerated(EnumType.STRING)
+    private StatutDisponibilite disponibilite = StatutDisponibilite.DISPONIBLE;
+
+    @OneToMany(mappedBy = "technicien")
+    private List<Maintenance> tachesAssignees = new ArrayList<>();
 
 
 }
